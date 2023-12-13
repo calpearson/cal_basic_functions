@@ -1,0 +1,12 @@
+# left and right function 
+right = function (string, char) {substr(string,nchar(string)-(char-1),nchar(string))}
+left = function (string,char) {substr(string,1,char)}
+
+
+# this function is an auto dedupe that will just dedupe leaving the first duplicate in so there are no duplicates
+cal_auto_dedupe <- function(df) {
+  df <- df %>%
+    mutate(dupe = duplicated(.)) %>%
+    filter(dupe == F) %>%
+    select(-dupe)
+}
